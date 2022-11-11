@@ -1,0 +1,45 @@
+
+Generacion de reportes
+create TRIGGER auditoria AFTER insert on ventas
+    for EACH row 
+    INSERT into informe ( idinforme, totalventa, fecha)
+    values (new.idVentas, new.Totalpagar, now());
+
+
+----------------------------------------------
+CREATE TABLE Repartidor
+ (
+ idrepartidor int  primary key  AUTO_INCREMENT not null,
+ NombreR varchar (50),
+ telefonoR int,
+EstatusR varchar (50)
+fechacreacion date
+ );
+
+
+INSERT INTO `repartidores` (`idrepartidor`, `NombreR`, `telefonoR`, `EstatusR`) VALUES ('', 'Juan', '57123023', 'Activo');
+ALTER TABLE `repartidores` ADD `fechacreacionR` DATE NOT NULL AFTER `EstatusR`;
+----------------------------------------------
+
+CREATE TABLE miruta
+ (
+ idreruta int  primary key  AUTO_INCREMENT not null,
+ idventa int,
+ telefonom int,
+ Direccionm varchar (50),
+ idRepartidor int,    
+ fechaasignacion date, 
+ accion varchar (25),
+fechaaccion date
+ );
+
+
+----------------------
+ }
+
+    //Menu de repartidor
+    @RequestMapping("miruta.htm")
+    public ModelAndView Listar3() {
+        mav.addObject("lista", datos);
+        mav.setViewName("miruta");
+        return mav;

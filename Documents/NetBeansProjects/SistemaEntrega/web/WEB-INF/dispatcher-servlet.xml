@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                
+                <prop key="index.htm">controlador</prop>
+                <prop key="Login.htm">controlador</prop>
+                <prop key="miruta.htm">controlador</prop>
+                <prop key="Error.htm">controlador</prop>
+                <prop key="MapaActivo.htm">controlador</prop>
+                <prop key="carrito.htm">controlador</prop>
+                <prop key="admin.htm">controlador</prop>
+                <prop key="MapaRuta.htm">controlador</prop>
+                <prop key="Tiendas.htm">controlador</prop>
+                <prop key="NuevoUsuario.htm">controlador</prop>
+                <prop key="Solicitud.htm">controlador</prop>
+                <prop key="Ventas.htm">controlador</prop>
+                <prop key="agregartienda.htm">controlador</prop>
+                <prop key="Distancia.htm">controlador</prop>
+                <prop key="Piloto.htm">controlador</prop>
+                <prop key="AgregarRepartidor.htm">controlador</prop>
+                <prop key="Reporte.htm">controlador</prop>
+                 <prop key="Metodonor.htm">controlador</prop>
+                 <prop key="Estados.htm">controlador</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="controlador" class="Controller.Controlador" />
+
+</beans>
